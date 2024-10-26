@@ -4,10 +4,28 @@ Console.Write("Введите значение N: ");
 int N = Convert.ToInt32(Console.ReadLine());
 void get_numbers_between(int first,int second)
 {
-    for (int i = first;i<=second;i++)
+    if (first > second)
     {
-        Console.WriteLine(i);
+      Console.Write($"{first} ");
+      if (first < second)
+      {
+      return;
+      }
+      get_numbers_between(first - 1, second);
+    }
+    else if (first < second)
+    {
+      Console.Write($"{first} ");
+      if (first > second)
+      {
+      return;
+      }
+      get_numbers_between(first + 1, second);
+    }
+    else
+    {
+        Console.WriteLine(first);
     }
 }
-get_numbers_between(M,N);
-
+Console.Write($"Числа в диапазоне от {M} до {N}: ");
+get_numbers_between(M, N);
